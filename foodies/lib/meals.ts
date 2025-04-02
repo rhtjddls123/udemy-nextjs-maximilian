@@ -8,3 +8,7 @@ export const getMeals = async () => {
 
   return db.prepare("SELECT * FROM meals").all() as MealType[];
 };
+
+export const getMeal = (slug: string) => {
+  return db.prepare("SELECT * FROM meals WHERE slug = ?").get(slug) as MealType;
+};

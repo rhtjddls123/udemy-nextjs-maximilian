@@ -4,6 +4,19 @@ import Image from "next/image";
 import { getMeal } from "@/lib/meals";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({ params }: MealDetailsPageProps) {
+  const meal = getMeal((await params).mealSlug);
+
+  if (!meal) {
+    notFound();
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary
+  };
+}
+
 interface MealDetailsPageProps {
   params: Promise<{ mealSlug: string }>;
 }
@@ -21,7 +34,7 @@ const MealDetailsPage = async ({ params }: MealDetailsPageProps) => {
     <>
       <header className={classes.header}>
         <div className={classes.image}>
-          <Image src={meal.image} alt={meal.title} fill />
+          <Image src={meal.image as unknown as string} alt={meal.title} fill />
         </div>
         <div className={classes.headerText}>
           <h1>{meal.title}</h1>

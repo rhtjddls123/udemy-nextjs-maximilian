@@ -4,6 +4,12 @@ import classes from "./page.module.css";
 import MealsGrid from "@/components/meals/MealsGrid";
 import { getMeals } from "@/lib/meals";
 import MealsLoadingPage from "./loading-out";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "All Meals",
+  description: "Browse the delicious meals shared by our vibrant community."
+};
 
 const Meals = async () => {
   const meals = await getMeals();

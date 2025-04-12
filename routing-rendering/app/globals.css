@@ -193,3 +193,9 @@ ul {
   text-align: center;
   margin-top: 3rem;
 }
+
+.fullscreen-image {
+  position: relative;
+  witdh: 1024px;
+  height: 1024px;
+}

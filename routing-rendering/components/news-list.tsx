@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface NewsListProps {
-  news: NewsType;
+  news: NewsType[];
 }
 
 const NewsList = ({ news }: NewsListProps) => {
